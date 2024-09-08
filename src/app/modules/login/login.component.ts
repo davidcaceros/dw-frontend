@@ -53,4 +53,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
+
+  goToRegister(){
+    this.Router.navigate(['punto-de-venta/registro'])
+  }
+
+
+
 }
