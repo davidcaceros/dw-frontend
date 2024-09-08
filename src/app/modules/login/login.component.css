@@ -1,0 +1,79 @@
+.flex{
+    min-height: 95vh;
+}
+a:link {
+text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+color: black;
+}
+.peq{
+    width: 195px;
+    height: 100px;
+}
+.logogif{
+	width: 100%;
+    padding: 15%;
+}
+.contenido{display: flex; align-items: center;}
+.form-title{
+	text-align: center;
+	color: gray;
+}
+.image-box{
+    width: 210px;
+    margin: 0 auto;
+}
+.button-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-media-icons{
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 23px;
+    display: flex;
+    justify-content: center;
+}
+.social-media-icons img{
+    width: 40px;
+}
+.circle1{
+    background: var(--blue);
+    width: 95%;
+    height: 190%;
+    border-radius: 50%;
+    position: fixed;
+    z-index: -1;
+    right: 50%;
+    bottom: 0;
+}
+.circle2{
+    background: var(--light-blue);
+    width: 50%;
+    height: 90%;
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    z-index: -1;
+    left: 65%;
+}
+.border{
+    border-radius: 25px;
+}
+.card{
+    box-shadow: 0 8px 8px rgb(14 21 47 / 47%);
+}
+
+small{
+    background: aliceblue;
+}
+
+/* .circle1, .circle2 {
+	border-width: 25px;
+    border-style: solid;
+    border-color: var(--border-blue);
+    box-shadow: 4px 8px 15px rgb(14 21 47 / 47%);
+} */
