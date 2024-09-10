@@ -4,7 +4,7 @@ import { environment } from 'src/enviroments/enviroment';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 // import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { Router, withEnabledBlockingInitialNavigation } from '@angular/router';
 import { LoaderService } from './loader/loader-service.service';
 
 @Injectable({
@@ -109,52 +109,10 @@ export class ApiService {
     // Remove token from the local storage
     console.log("you click on log out ")
     localStorage.clear();
-    this.Router.navigate(['']);
+    this.Router.navigate(['punto-de-venta/login']);
+    window.location.reload()
   }
 
-  //DNA REQUEST
-  getMethodDNA(endpoint: string, params?:any, errorMessage?:string){
-    this.LoaderService.showDNALoader();
-    let _params =  new HttpParams
-    const url = `${environment.URLBase}${endpoint}`;
-    return this.HttpClient.get(url, {params})
-    .pipe(tap(response => {
-        this.LoaderService.hideDNALoader();
-        return response;
-    }),
-    catchError((error: HttpErrorResponse) => {
-      if(error.status == 0){
-        this.LoaderService.hideDNALoader();
-        this.showErrorMessage("Conexión Denegada.");
-        this.signOut();
-      }
-      console.log(error.status);
-      return throwError(true);
-    })
-  );
-  }
-
-  postMethodDNA(endpoint:string, data:any, params?:any, errorMessage?:string): Observable<any> {
-    const url = `${environment.URLBase}${endpoint}`;
-    this.LoaderService.showDNALoader();
-    return this.HttpClient.post(url, data, {params})
-    .pipe(tap(response => {
-        this.LoaderService.hideDNALoader();
-    }),
-      catchError((error: HttpErrorResponse) => {
-        this.LoaderService.hideDNALoader();
-        if(error.status == 0){
-          this.LoaderService.hideDNALoader();
-          this.showErrorMessage("Conexión Denegada.");
-          this.signOut();
-        }
-        if(error.ok == false){
-          this.showErrorMessage(error.error.msg);
-        }
-        return throwError(true);
-      })
-    );
-  }
-
+  
 
 }

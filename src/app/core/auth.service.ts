@@ -58,12 +58,11 @@ export class AuthService {
 
   getCurrentUser(){
     let user = JSON.parse(localStorage.getItem('currentUser')?? '');
-    // console.log(user);
     return user;
   }
 
   signIn(user: any){
-    return this.ApiService.postMethodDNA("/auth/login", user,{},"error")
+    return this.ApiService.postMethod("/auth/login", user,{},"error")
     .pipe(tap((response) => {
         console.log(response)
         this.currentUserName = JSON.stringify(response.usuario);
@@ -80,6 +79,6 @@ export class AuthService {
     // Remove token from the local storage
     localStorage.clear();
     this._isLoggedIn$.next(false);
-    this.Router.navigate(['']);
+    this.Router.navigate(['punto-de-venta/login']);
   }
 }

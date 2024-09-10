@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 export class LoaderService {
 
   private loading:  boolean  = false;
-  private loadingDNA: boolean = false;
+
   constructor() { }
-
-
-
 
   showLoader() {
     this.loading = true;
@@ -22,18 +18,5 @@ export class LoaderService {
   getLoading(): boolean {
     return this.loading;
   }
-
-
-
-  showDNALoader() {
-    this.loadingDNA = true;
-  }
-  hideDNALoader() {
-    this.loadingDNA = false;
-  }
-  getDNALoading(): boolean {
-    return this.loadingDNA;
-  }
-
 
 }

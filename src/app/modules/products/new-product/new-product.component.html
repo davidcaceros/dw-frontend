@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>Nuevo Producto</h2>
+<mat-dialog-content class="mat-typography">
+  
+<div class="container">
+    <div class="row">
+        <form [formGroup]="productForm">
+        
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre del Producto</label>
+                <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="Ingresa el nombre del producto" />
+                <div *ngIf="productForm.get('nombre')?.invalid && productForm.get('nombre')?.touched" class="text-danger">
+                    El nombre es requerido.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea id="descripcion" formControlName="descripcion" class="form-control" rows="3" placeholder="Ingresa una descripción"></textarea>
+                <div *ngIf="productForm.get('descripcion')?.invalid && productForm.get('descripcion')?.touched" class="text-danger">
+                    La descripción es requerida.
+                </div>
+            </div>
+        
+            <div class="mb-3">
+                <label for="ubicacionFisica" class="form-label">Ubicación Física</label>
+                <input type="text" id="ubicacionFisica" formControlName="ubicacionFisica" class="form-control" placeholder="Ingresa la ubicación física" />
+                <div *ngIf="productForm.get('ubicacionFisica')?.invalid && productForm.get('ubicacionFisica')?.touched" class="text-danger">
+                    La ubicación física es requerida.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="existenciaMinima" class="form-label">Existencia Mínima</label>
+                <input type="number" id="existenciaMinima" formControlName="existenciaMinima" class="form-control" placeholder="Ingresa la existencia mínima" />
+                <div *ngIf="productForm.get('existenciaMinima')?.invalid && productForm.get('existenciaMinima')?.touched" class="text-danger">
+                    La existencia mínima debe ser mayor a 0.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="codigoProveedor" class="form-label">Código del Proveedor</label>
+                <input type="number" id="codigoProveedor" formControlName="codigoProveedor" class="form-control" placeholder="Ingresa el código del proveedor" />
+                <div *ngIf="productForm.get('codigoProveedor')?.invalid && productForm.get('codigoProveedor')?.touched" class="text-danger">
+                    El código del proveedor es requerido.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="fechaVencimiento" class="form-label">Fecha de Vencimiento</label>
+                <input type="date" id="fechaVencimiento" formControlName="fechaVencimiento" class="form-control" />
+                <div *ngIf="productForm.get('fechaVencimiento')?.invalid && productForm.get('fechaVencimiento')?.touched" class="text-danger">
+                    La fecha de vencimiento es requerida.
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="createProducts()" [mat-dialog-close]="true" cdkFocusInitial type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Crear</button>
+</mat-dialog-actions>
