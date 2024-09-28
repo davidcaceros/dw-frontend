@@ -1,54 +1,53 @@
 <nav-app></nav-app>
 
 <div class="container">
-    <br><br>
-    <div class="row">
-        <div class="col-md-4">
-            <!-- <div class="card">
+  <br /><br />
+  <div class="row">
+    <div class="col-md-4">
+      <!-- <div class="card">
                 ENTREGA DE PAQUETES
             </div> -->
-            <div class="card">
-                <img src="assets/images/entrega.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">ENTREGA DE PAQUETES</p>
-                </div>
-              </div>
+      <div class="card">
+        <img src="assets/images/entrega.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">ENTREGA DE PAQUETES</p>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="assets/images/ventas.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">VENTAS</p>
-                </div>
-              </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="assets/images/notas.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">NOTAS DE CREDITO</p>
-                </div>
-              </div>
-        </div>
+      </div>
     </div>
-    <br><br>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card pointer" (click)="goToUsers()">
-                <img src="assets/images/clientes.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">CLIENTES</p>
-                </div>
-              </div>
+    <div class="col-md-4">
+      <div class="card pointer" (click)="goToSales()">
+        <img src="assets/images/ventas.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">VENTAS</p>
         </div>
-        <div class="col-md-6">
-            <div class="card pointer" (click)="goToProducts()">
-                <img src="assets/images/productos.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">PRODUCTOS</p>
-                </div>
-              </div>
-        </div>
+      </div>
     </div>
- 
+    <div class="col-md-4">
+      <div class="card">
+        <img src="assets/images/notas.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">NOTAS DE CREDITO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card pointer" (click)="goToUsers()">
+        <img src="assets/images/clientes.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">CLIENTES</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card pointer" (click)="goToProducts()">
+        <img src="assets/images/productos.png" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">PRODUCTOS</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

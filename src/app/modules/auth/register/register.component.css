@@ -1,0 +1,30 @@
+/* Estilos para el contenedor del formulario */
+.container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100vh !important;
+}
+
+.card {
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.form-label {
+  font-weight: bold !important;
+}
+
+.input-group-text {
+  cursor: pointer !important;
+}
+
+.pointer {
+  cursor: pointer !important;
+  color: blue !important;
+}
+
+.pointer:hover {
+  text-decoration: underline !important;
+}
