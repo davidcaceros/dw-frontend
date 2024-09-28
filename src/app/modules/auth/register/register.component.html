@@ -1,98 +1,212 @@
 <div class="container flex-container">
-    <div class="card w-50">
-        <h1 class="text-center">Registro</h1>
-        <div class="form px-2">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Primer Nombre</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Primer Nombre">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Segundo Nombre</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Segundo Nombre">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Primer Apellido</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Primer Apellido">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Segundo Apellido</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Segundo Apellido">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-               <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">DPI</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="DPI">
-                </div>
-               </div>
-               <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">NIT</label>
-                    <input type="NIT" class="form-control" id="exampleFormControlInput1" placeholder="NIT">
-                </div>
-               </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Pasaporte</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Pasaporte">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Telefono</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Telefono">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput" class="form-label">Correo Electronico</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput" placeholder="Correo Electronico">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Direccion">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 pb-2 text-center">
-                    <p (click)="goToLogin()" class="pointer">
-                      Login
-                    </p>
-                    <button class="btn btn-info"> Registrar </button>
-                </div>
-            </div>
+  <div class="card w-50">
+    <h1 class="text-center">Registro</h1>
+    <div class="form px-2" [formGroup]="registerForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Primer Nombre</label>
+            <input
+              formControlName="primerNombre"
+              type="text"
+              class="form-control"
+              placeholder="Primer Nombre"
+            />
+          </div>
         </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Segundo Nombre</label>
+            <input
+              formControlName="segundoNombre"
+              type="text"
+              class="form-control"
+              placeholder="Segundo Nombre"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Primer Apellido</label>
+            <input
+              formControlName="primerApellido"
+              type="text"
+              class="form-control"
+              placeholder="Primer Apellido"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label">Segundo Apellido</label>
+            <input
+              formControlName="segundoApellido"
+              type="text"
+              class="form-control"
+              placeholder="Segundo Apellido"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label class="form-label">Apellido de Casada</label>
+            <input
+              formControlName="apellidoCasada"
+              type="text"
+              class="form-control"
+              placeholder="Apellido de Casada"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">DPI</label>
+            <input
+              formControlName="dpi"
+              type="text"
+              class="form-control"
+              placeholder="DPI"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">NIT</label>
+            <input
+              formControlName="nit"
+              type="text"
+              class="form-control"
+              placeholder="NIT"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">Pasaporte</label>
+            <input
+              formControlName="pasaporte"
+              type="text"
+              class="form-control"
+              placeholder="Pasaporte"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input
+              formControlName="telefono"
+              type="text"
+              class="form-control"
+              placeholder="Teléfono"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">Correo Electrónico</label>
+            <input
+              formControlName="correo"
+              type="email"
+              class="form-control"
+              placeholder="Correo Electrónico"
+            />
+            <div
+              *ngIf="
+                registerForm.get('correo')?.invalid &&
+                registerForm.get('correo')?.touched
+              "
+              class="text-danger"
+            >
+              Correo no es válido o es requerido.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">Dirección</label>
+            <input
+              formControlName="direccion"
+              type="text"
+              class="form-control"
+              placeholder="Dirección"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <input
+              formControlName="estado"
+              type="text"
+              class="form-control"
+              placeholder="Estado"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">Categoría</label>
+            <input
+              formControlName="categoria"
+              type="text"
+              class="form-control"
+              placeholder="Categoría"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <div class="input-group">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                formControlName="contrasena"
+                class="form-control"
+                placeholder="Contraseña"
+              />
+              <span class="input-group-text" (click)="toggleShowPassword()">
+                <i
+                  class="fa"
+                  [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                ></i>
+              </span>
+            </div>
+            <div
+              *ngIf="
+                registerForm.get('contrasena')?.invalid &&
+                registerForm.get('contrasena')?.touched
+              "
+              class="text-danger"
+            >
+              La contraseña debe tener al menos 8 caracteres, incluyendo una
+              letra mayúscula, un número y un símbolo.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 pb-2 text-center">
+          <p (click)="goToLogin()" class="pointer">Login</p>
+          <button class="btn btn-info" (click)="register()">Registrar</button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

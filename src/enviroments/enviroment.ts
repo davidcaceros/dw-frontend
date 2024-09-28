@@ -8,15 +8,7 @@
 export const environment = {
   production: false,
   URLBase: 'http://localhost:8080/api',
-  preOrderId: 'P',
-  orderId: 'O',
   AUTH_KEY: 'key_value',
-  dashboard_route: '/4dlab/dashboard',
-  preOrder_create: '/pre-ordenes/nueva-pre-orden',
-  preOrder_list: '/pre-ordenes/lista-pre-orden',
-  order_create: '/ordenes/adminsion-de-ordenes',
-  order_list: '/ordenes/listado-de-ordenes',
-  order_detail: '/ordenes/detalle-de-la-orden',
 };
 
 /*
