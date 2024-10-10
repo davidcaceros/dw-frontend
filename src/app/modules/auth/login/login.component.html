@@ -1,33 +1,55 @@
 <div class="container flex-container">
-    <div class="card w-50">
-        <h1 class="text-center">Login</h1>
-        <form class="form px-2" [formGroup]="loginForm">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control"  formControlName="usuario" placeholder="name@example.com">
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Password</label>
-                        <input type="password" class="form-control"  formControlName="contrasena" placeholder="Password">
-                      </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 pb-2 text-center">
-                    <p (click)="goToRegister()" class="pointer">Registrate</p>
-                    <button class="btn btn-primary"
-                    type="submit"
-                            [disabled]="loginForm.invalid"
-                            (click)="loginUsuario(loginForm.value)"
-                    > Ingresar </button>
-                </div>
-            </div>
-        </form>
-    </div>
+  <div class="card">
+    <h1 class="text-center">Inicio de Sesión</h1>
+    <form class="form px-2" [formGroup]="loginForm">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Correo Electrónico</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              formControlName="usuario"
+              placeholder="name@example.com"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-3 position-relative">
+            <label for="exampleFormControlInput2" class="form-label"
+              >Contraseña</label
+            >
+            <input
+              [type]="clearPassword ? 'text' : 'password'"
+              class="form-control"
+              formControlName="contrasena"
+              placeholder="Password"
+              id="exampleFormControlInput2"
+            />
+            <i
+              class="fa"
+              [ngClass]="clearPassword ? 'fa-eye-slash' : 'fa-eye'"
+              (click)="togglePasswordVisibility()"
+            ></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 pb-2 text-center">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="loginForm.invalid"
+            (click)="loginUsuario(loginForm.value)"
+          >
+            Iniciar Sesión
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
