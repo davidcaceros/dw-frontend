@@ -2,12 +2,13 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-//URLBase: 'http://167.99.144.245:8080/api', //'http://127.0.0.1:44446', // // 'http://172.20.10.2:8095'  //'http://192.168.0.101:8095' //'http://181.189.137.115:44466' //
-//URLBase: 'http://172.16.20.134:44446',
+
 
 export const environment = {
   production: false,
-  URLBase: 'http://localhost:8080/api',
+  // URLBase: 'http://localhost:8080/api',
+
+  URLBase: 'http://167.99.144.245:8080/api',
   AUTH_KEY: 'key_value',
 };
 
