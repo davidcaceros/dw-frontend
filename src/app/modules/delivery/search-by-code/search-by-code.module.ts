@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { SearchByCodeRoutingModule } from './search-by-code-routing.module';
-import { SearchByCodeComponent } from './search-by-code.component';
-
+import { NavModule } from 'src/app/core/nav/nav.module';
 
 @NgModule({
-  declarations: [
-    SearchByCodeComponent
-  ],
-  imports: [
-    CommonModule,
-    SearchByCodeRoutingModule
-  ]
+  declarations: [],
+  imports: [CommonModule, FormsModule, SearchByCodeRoutingModule, NavModule],
 })
-export class SearchByCodeModule { }
+export class SearchByCodeModule {}

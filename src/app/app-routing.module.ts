@@ -62,27 +62,6 @@ const routes: Routes = [
         (m) => m.DeliveryModule
       ),
   },
-  // {
-  //   path: 'punto-de-venta/entrega-paquetes/crear',
-  //   loadChildren: () =>
-  //     import('./modules/delivery/create-package/create-package.module').then(
-  //       (m) => m.CreatePackageModule
-  //     ),
-  // },
-  // {
-  //   path: 'punto-de-venta/entrega-paquetes/buscar-codigo',
-  //   loadChildren: () =>
-  //     import('./modules/delivery/search-by-code/search-by-code.module').then(
-  //       (m) => m.SearchByCodeModule
-  //     ),
-  // },
-  // {
-  //   path: 'punto-de-venta/entrega-paquetes/buscar-fecha',
-  //   loadChildren: () =>
-  //     import('./modules/delivery/search-by-date/search-by-date.module').then(
-  //       (m) => m.SearchByDateModule
-  //     ),
-  // },
 ];
 
 const routerConfig: ExtraOptions = {

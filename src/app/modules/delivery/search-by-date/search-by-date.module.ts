@@ -2,16 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SearchByDateRoutingModule } from './search-by-date-routing.module';
-import { SearchByDateComponent } from './search-by-date.component';
-
+import { NavModule } from 'src/app/core/nav/nav.module';
 
 @NgModule({
-  declarations: [
-    SearchByDateComponent
-  ],
-  imports: [
-    CommonModule,
-    SearchByDateRoutingModule
-  ]
+  declarations: [],
+  imports: [CommonModule, SearchByDateRoutingModule, NavModule],
 })
-export class SearchByDateModule { }
+export class SearchByDateModule {}

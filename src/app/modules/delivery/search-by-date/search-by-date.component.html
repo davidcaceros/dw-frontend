@@ -1,1 +1,97 @@
-<p>search-by-date works!</p>
+<nav-app></nav-app>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form [formGroup]="searchForm" (ngSubmit)="buscarEntregas()">
+        <div class="form-group">
+          <label for="startDate">Fecha de Inicio:</label>
+          <input
+            id="startDate"
+            formControlName="startDate"
+            type="date"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="endDate">Fecha de Fin:</label>
+          <input
+            id="endDate"
+            formControlName="endDate"
+            type="date"
+            class="form-control"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mt-3">
+          Buscar Entregas
+        </button>
+      </form>
+
+      <button
+        class="btn btn-secondary btn-block mt-3"
+        (click)="limpiarFormulario()"
+      >
+        Limpiar Fechas
+      </button>
+
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+
+      <div *ngIf="noResultsMessageVisible" class="alert alert-info mt-3">
+        No se encontraron resultados.
+      </div>
+
+      <table *ngIf="entregas.length > 0" class="table table-bordered mt-4">
+        <thead>
+          <tr>
+            <th>ID de Venta</th>
+            <th>Estado</th>
+            <th>Código de Entrega</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entrega of paginatedEntregas">
+            <td>{{ entrega.idVenta }}</td>
+            <td>{{ entrega.estado }}</td>
+            <td>{{ entrega.codigoEntrega }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <nav *ngIf="entregas.length > 0">
+        <ul class="pagination justify-content-center">
+          <li
+            class="page-item"
+            [class.disabled]="currentPage === 1"
+            (click)="currentPage = currentPage - 1"
+          >
+            <a class="page-link" href="javascript:void(0)">Anterior</a>
+          </li>
+          <li
+            class="page-item"
+            *ngFor="
+              let page of [].constructor(totalItems / itemsPerPage);
+              let i = index
+            "
+          >
+            <a
+              class="page-link"
+              href="javascript:void(0)"
+              [class.active]="currentPage === i + 1"
+              (click)="currentPage = i + 1"
+            >
+              {{ i + 1 }}
+            </a>
+          </li>
+          <li
+            class="page-item"
+            [class.disabled]="currentPage === totalItems / itemsPerPage"
+            (click)="currentPage = currentPage + 1"
+          >
+            <a class="page-link" href="javascript:void(0)">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

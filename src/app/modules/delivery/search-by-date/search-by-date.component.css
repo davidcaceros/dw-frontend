@@ -1,0 +1,25 @@
+.container {
+  margin-top: 20px;
+}
+
+.table {
+  background-color: #f9f9f9;
+}
+
+thead th {
+  background-color: #343a40;
+  color: white;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.btn {
+  width: 100%;
+}
+
+.alert {
+  text-align: center;
+  margin-top: 10px;
+}
