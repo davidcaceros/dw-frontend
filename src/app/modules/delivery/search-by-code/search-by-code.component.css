@@ -1,0 +1,28 @@
+.container {
+  margin-top: 20px;
+}
+
+.table {
+  background-color: #f9f9f9;
+}
+
+.thead-dark th {
+  background-color: #343a40;
+  color: white;
+}
+
+.btn {
+  width: 100%;
+}
+
+.alert {
+  text-align: center;
+}
+
+.alert-danger {
+  margin-top: 10px;
+}
+
+.alert-success {
+  margin-top: 10px;
+}

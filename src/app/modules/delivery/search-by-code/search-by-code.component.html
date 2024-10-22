@@ -1,1 +1,79 @@
-<p>search-by-code works!</p>
+<nav-app></nav-app>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="searchForm" (ngSubmit)="buscarEntrega()">
+        <label for="codigoEntrega">Código de Entrega:</label>
+        <input
+          id="codigoEntrega"
+          formControlName="codigoEntrega"
+          class="form-control"
+        />
+        <button type="submit" class="btn btn-primary btn-block mt-3">
+          Buscar Entrega
+        </button>
+      </form>
+
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+        {{ errorMessage }}
+      </div>
+
+      <div *ngIf="successMessage" class="alert alert-success mt-3">
+        {{ successMessage }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-4" *ngIf="entregaData">
+    <div class="col-md-8">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID de Venta</th>
+            <th>Estado</th>
+            <th>Latitud</th>
+            <th>Longitud</th>
+            <th>Código de Entrega</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ entregaData.idVenta }}</td>
+            <td>{{ entregaData.estado }}</td>
+            <td>{{ entregaData.latitud }}</td>
+            <td>{{ entregaData.longitud }}</td>
+            <td>{{ entregaData.codigoEntrega }}</td>
+            <td>
+              <button
+                class="btn btn-warning"
+                (click)="cambiarEstado()"
+                [disabled]="estadoForm.invalid"
+              >
+                Cambiar Estado
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="6">
+              <form [formGroup]="estadoForm">
+                <select class="form-control" formControlName="estado">
+                  <option *ngFor="let estado of estados" [value]="estado">
+                    {{ estado }}
+                  </option>
+                </select>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button
+        class="btn btn-secondary btn-block mt-3"
+        (click)="limpiarFormulario()"
+      >
+        Limpiar
+      </button>
+    </div>
+  </div>
+</div>
