@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form
+        [formGroup]="createPackageForm"
+        (ngSubmit)="getVentaData()"
+        class="venta-form"
+      >
+        <label for="idVenta">ID de Venta:</label>
+        <input
+          id="idVenta"
+          formControlName="idVenta"
+          required
+          class="form-control"
+        />
+        <button type="submit" class="btn btn-primary btn-block mt-2">
+          Buscar Venta
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" *ngIf="ventaData">
+    <div class="col-md-8">
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Datos del Cliente</h3>
+        </div>
+        <div class="card-body">
+          <p>
+            Nombre: {{ ventaData.cliente.primerNombre }}
+            {{ ventaData.cliente.primerApellido }}
+          </p>
+          <p>NIT: {{ ventaData.cliente.nit }}</p>
+          <p>Teléfono: {{ ventaData.cliente.telefono }}</p>
+          <p>Dirección: {{ ventaData.cliente.direccion }}</p>
+
+          <h3>Detalle de la Venta</h3>
+          <ul>
+            <li *ngFor="let producto of ventaData.detalleVenta">
+              {{ producto.nombre }} - {{ producto.descripcion }} - Cantidad:
+              {{ producto.cantidad }} - Precio: Q{{ producto.precio }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-4" *ngIf="ventaData">
+    <div class="col-md-6">
+      <form
+        [formGroup]="createPackageForm"
+        (ngSubmit)="submit()"
+        class="text-center"
+      >
+        <label for="departamento">Departamento:</label>
+        <select
+          id="departamento"
+          (change)="onDepartamentoChange($event)"
+          formControlName="departamento"
+          class="form-control"
+          required
+        >
+          <option
+            *ngFor="let departamento of departamentos"
+            [value]="departamento.idDepartamento"
+          >
+            {{ departamento.nombreDepartamento }}
+          </option>
+        </select>
+
+        <label for="municipio" class="mt-3">Municipio:</label>
+        <select
+          id="municipio"
+          formControlName="municipio"
+          class="form-control"
+          required
+        >
+          <option
+            *ngFor="let municipio of municipios"
+            [value]="municipio.idMunicipio"
+          >
+            {{ municipio.nombreMunicipio }}
+          </option>
+        </select>
+
+        <button type="submit" class="btn btn-success btn-block mt-3">
+          Crear Paquete
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  *ngIf="showModal"
+  tabindex="-1"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación de Entrega</h5>
+      </div>
+      <div class="modal-body">
+        <p>{{ modalMessage }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="closeModal()">
+          Aceptar
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          *ngIf="codigoEntrega"
+          (click)="generatePDF()"
+        >
+          Ver PDF
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
