@@ -1,0 +1,59 @@
+<div class="ventas-container">
+  <h2>Listado de Ventas</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Cliente</th>
+        <th>Vendedor</th>
+        <th>Tipo de Venta</th>
+        <th>Total</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let venta of ventas; let i = index">
+        <td>{{ venta.idVenta }}</td>
+        <td>{{ venta.cliente.primerNombre }} {{ venta.cliente.primerApellido }}</td>
+        <td>{{ venta.vendedor }}</td>
+        <td>{{ venta.tipoVenta }}</td>
+        <td>{{ venta.totalVenta | currency }}</td>
+        <td>{{ venta.estado }}</td>
+        <td>
+          <button class="btn btn-info" (click)="mostrarDetalles(venta)">Detalles</button>
+          <button class="btn btn-danger" *ngIf="venta.estado !== 'CANCELADO'" (click)="confirmarCancelacion(venta)">Cancelar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal para mostrar los detalles de la venta -->
+<div class="modal" id="detallesModal" tabindex="-1" aria-labelledby="detallesModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detallesModalLabel">Detalles de la Venta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Cliente:</strong> {{ ventaSeleccionada?.cliente?.primerNombre }} {{ ventaSeleccionada?.cliente?.primerApellido }}</p>
+        <p><strong>Vendedor:</strong> {{ ventaSeleccionada?.vendedor }}</p>
+        <p><strong>Tipo de Venta:</strong> {{ ventaSeleccionada?.tipoVenta }}</p>
+        <p><strong>Total Venta:</strong> {{ ventaSeleccionada?.totalVenta | currency }}</p>
+        <p><strong>Saldo a Favor:</strong> {{ ventaSeleccionada?.saldoFavor | currency }}</p>
+        <h5>Detalles del Producto</h5>
+        <ul>
+          <li *ngFor="let detalle of ventaSeleccionada?.detalleVenta">
+            {{ detalle.nombre }} - {{ detalle.cantidad }} x {{ detalle.precio | currency }}
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
