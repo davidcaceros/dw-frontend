@@ -53,8 +53,16 @@ const routes: Routes = [
   {
     path: 'punto-de-venta',
     loadChildren: () =>
+      import('./modules/credit-notes/credit-notes.module').then(
+        (m) => m.CreditNoteModule
+      ),
+  },
+  {
+    path: 'punto-de-venta',
+    loadChildren: () =>
       import('./modules/sales/sales.module').then((m) => m.SalesModule),
   },
+
 ];
 
 const routerConfig: ExtraOptions = {
