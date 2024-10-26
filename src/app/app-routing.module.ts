@@ -58,6 +58,13 @@ const routes: Routes = [
   {
     path: 'punto-de-venta',
     loadChildren: () =>
+      import('./modules/credit-notes/credit-notes.module').then(
+        (m) => m.CreditNoteModule
+      ),
+  },
+  {
+    path: 'punto-de-venta',
+    loadChildren: () =>
       import('./modules/delivery/delivery.module').then(
         (m) => m.DeliveryModule
       ),
