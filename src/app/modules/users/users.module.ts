@@ -5,18 +5,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-
+import { EditarUsuarioComponent } from './editar/editar.component';
 import { MatInputModule } from '@angular/material/input';
-import { Routes, RouterModule } from '@angular/router';
-// import { AutenticateGuard } from 'src/app/4DLAB.Core/guards/authenticated.guard';
+import { CrearUsuarioComponent } from './crear/crear.component';
 import { UsersRoutingModule } from './users-routing';
 import { UsersComponent } from './users.component';  
 import { NavModule } from 'src/app/core/nav/nav.module';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
   declarations: [
     UsersComponent,
+    EditarUsuarioComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     CommonModule,
@@ -24,8 +28,10 @@ import { NavModule } from 'src/app/core/nav/nav.module';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatDialogModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatSelectModule,
     // RouterModule.forChild(preOrderRoutes)
     UsersRoutingModule,
     NavModule

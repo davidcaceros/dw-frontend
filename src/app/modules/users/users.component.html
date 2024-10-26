@@ -1,8 +1,64 @@
+
+
 <nav-app></nav-app>
 
-<div class="container flex-container">
-  <div class="row">
-    <h1>usuarios works</h1>
-    <div class="card">{{ users | json }}</div>
-  </div>
+
+<div class="container text-center">
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <!-- <button class="btn btn-primary" (click)="crear()">Nuevo Producto</button> -->
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary" (click)="crear()">nueva persona</button>
+        </div>
+        <div class="col-md-4">
+            <!-- <button class="btn btn-primary"></button> -->
+        </div>
+    </div>
+    <br><br>
+</div>
+
+<div class="container-fluid">
+  
+    <table class="table mat-elevation-z8 table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Nit</th>
+            <th scope="col">Dpi</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Correo electronico</th>
+            <th scope="col">Categoria</th>
+            
+            <th scope="col">Rol</th>
+            <!-- <th scope="col">Estado</th> -->
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of persona" >
+            <th scope="row">{{p.primerNombre}} {{p.segundoNombre}}</th>
+            <th scope="row">{{p.primerApellido}} {{p.segundoApellido}}</th>
+            <th scope="row">{{p.nit}}</th>
+            <th scope="row">{{p.dpi}}</th>
+            <th scope="row">{{p.telefono}}</th>
+            <th scope="row">{{p.direccion}}</th>
+            <th scope="row">{{p.correo}}</th>
+            <th scope="row">{{p.categoria}}</th>
+            <th scope="row">{{p.rol.nombre}}</th>
+            <!-- <th scope="row" *ngIf="p.activo">Activo</th> -->
+            <th scope="row">{{p.fechaCreacion | date}}</th>
+            <th scope="row" >
+              <mat-icon (click)="editar(p)">edit</mat-icon>
+              <!-- <mat-icon (click)="eliminar(p)">delete</mat-icon> -->
+            </th>
+          </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
 </div>

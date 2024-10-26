@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Editar Usuario</h2>
+
+<form [formGroup]="editarPersona" (ngSubmit)="onSave()">
+  <mat-dialog-content>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Primer Nombre</mat-label>
+      <input matInput formControlName="primerNombre" placeholder="Ingrese el primer nombre">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Primer Apellido</mat-label>
+      <input matInput formControlName="primerApellido" placeholder="Ingrese el primer apellido">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="telefono" placeholder="Ingrese el teléfono">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="direccion" placeholder="Ingrese la dirección">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Estado</mat-label>
+      <input matInput formControlName="estado" placeholder="Ingrese el estado">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Categoría</mat-label>
+      <input matInput formControlName="categoria" placeholder="Ingrese la categoría">
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+    <button mat-button type="submit" [mat-dialog-close]="true" [disabled]="editarPersona.invalid">Guardar</button>
+  </mat-dialog-actions>
+</form>

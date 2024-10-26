@@ -1,0 +1,41 @@
+.delivery-dashboard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  height: calc(100vh - 40px);
+  padding: 20px;
+}
+
+.card {
+  width: 30%;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #80e6ff;
+  color: #0056b3;
+}
+
+.card-icon {
+  font-size: 40px;
+  color: #007bff;
+}
+
+.card-title {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 80%;
+  }
+}
