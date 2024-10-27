@@ -1,8 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth.service';
-import { ApiService } from 'src/app/core/api.service';
+import { Component, OnInit } from '@angular/core';
+import { SalesService } from './sales.service';
+import { VentaRequest, DetalleVentaRequest } from './venta.model';
 
 @Component({
   selector: 'sales-app',
@@ -10,23 +8,61 @@ import { ApiService } from 'src/app/core/api.service';
   styleUrls: ['./sales.component.css'],
 })
 export class SalesComponent implements OnInit {
-  private readonly Router = inject(Router);
+  venta: VentaRequest = {
+    idCliente: null,
+    idVendedor: null,
+    tipoVenta: 'MENOR',
+    tipoPago: 'EFECTIVO',
+    detalleVenta: [{ idProducto: null, cantidad: null }],
+  };
+
+  alertMessage: string | null = null;
+  alertType: string = '';
+
+  constructor(private salesService: SalesService) {}
 
   ngOnInit(): void {}
 
-  goToUsers() {
-    this.Router.navigate(['punto-de-venta/usuarios']);
+  addDetalle() {
+    this.venta.detalleVenta.push({ idProducto: null, cantidad: null });
   }
-  goToProducts() {
-    this.Router.navigate(['punto-de-venta/productos']);
+
+  onCreateVenta() {
+    this.salesService.createVenta(this.venta).subscribe(
+      (response) => {
+        const idVenta = response?.idVenta || 'Desconocido';
+        this.alertMessage = `Venta creada exitosamente. ID de Venta: ${idVenta}`;
+        this.alertType = 'success';
+        this.clearForm();
+        this.autoDismissAlert();
+      },
+      (error) => {
+        this.alertMessage = 'Ocurrió un error al crear la venta.';
+        this.alertType = 'danger';
+        console.error(error);
+        this.autoDismissAlert();
+      }
+    );
   }
-  goToSales() {
-    this.Router.navigate(['punto-de-venta/ventas']);
+
+  autoDismissAlert() {
+    setTimeout(() => {
+      this.alertMessage = null;
+      this.alertType = '';
+    }, 5000);
   }
-  goToCreditNotes() {
-    this.Router.navigate(['punto-de-venta/notas-de-credito']);
+
+  clearForm() {
+    this.venta = {
+      idCliente: null,
+      idVendedor: null,
+      tipoVenta: 'MENOR',
+      tipoPago: 'EFECTIVO',
+      detalleVenta: [{ idProducto: null, cantidad: null }],
+    };
   }
-  goToPackage() {
-    this.Router.navigate(['punto-de-venta/paquetes']);
+
+  removeDetalle(index: number) {
+    this.venta.detalleVenta.splice(index, 1);
   }
 }

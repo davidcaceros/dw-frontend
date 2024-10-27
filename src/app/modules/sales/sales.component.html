@@ -1,1 +1,101 @@
-<h1>Ventas Works</h1>
+<nav-app></nav-app>
+<div class="sales-form">
+  <h2>Crear Nueva Venta</h2>
+  <div
+    *ngIf="alertMessage"
+    class="alert"
+    [ngClass]="{
+      'alert-success': alertType === 'success',
+      'alert-danger': alertType === 'danger'
+    }"
+  >
+    {{ alertMessage }}
+  </div>
+
+  <form (ngSubmit)="onCreateVenta()" #ventaForm="ngForm">
+    <div class="form-group">
+      <label for="idCliente">Cliente ID:</label>
+      <input
+        type="number"
+        id="idCliente"
+        name="idCliente"
+        class="form-control"
+        [(ngModel)]="venta.idCliente"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="idVendedor">Vendedor ID:</label>
+      <input
+        type="number"
+        id="idVendedor"
+        name="idVendedor"
+        class="form-control"
+        [(ngModel)]="venta.idVendedor"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="tipoVenta">Tipo de Venta:</label>
+      <select
+        id="tipoVenta"
+        name="tipoVenta"
+        class="form-control"
+        [(ngModel)]="venta.tipoVenta"
+        required
+      >
+        <option value="MENOR">Menor</option>
+        <option value="MAYOR">Mayor</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="tipoPago">Tipo de Pago:</label>
+      <select
+        id="tipoPago"
+        name="tipoPago"
+        class="form-control"
+        [(ngModel)]="venta.tipoPago"
+        required
+      >
+        <option value="EFECTIVO">Efectivo</option>
+        <option value="TARJETA">Tarjeta</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="detalleVenta">Detalle de Venta:</label>
+      <div
+        *ngFor="let detalle of venta.detalleVenta; let i = index"
+        class="form-inline"
+      >
+        <input
+          type="number"
+          placeholder="ID Producto"
+          class="form-control"
+          [(ngModel)]="detalle.idProducto"
+          name="idProducto{{ i }}"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Cantidad"
+          class="form-control"
+          [(ngModel)]="detalle.cantidad"
+          name="cantidad{{ i }}"
+          required
+        />
+        <button type="button" class="btn btn-danger" (click)="removeDetalle(i)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="addDetalle()">
+        Agregar Producto
+      </button>
+    </div>
+
+    <button type="submit" class="btn">Crear Venta</button>
+  </form>
+</div>
