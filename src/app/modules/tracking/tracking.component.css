@@ -1,0 +1,53 @@
+.map-container {
+  width: 100%;
+  height: 300px;
+  margin-top: 15px;
+}
+
+.tracking-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tracking-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.tracking-status div {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.tracking-status .completed {
+  background-color: #4caf50;
+  color: white;
+}
+
+.arrow {
+  width: 40px;
+  height: 2px;
+  background-color: gray;
+}
+
+.arrow.completed {
+  background-color: #4caf50;
+}
+
+.btn-back {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-back:hover {
+  background-color: #0056b3;
+}

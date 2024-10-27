@@ -59,3 +59,17 @@ h1 {
 .pointer {
   display: none;
 }
+
+.btn-tracking {
+  background-color: #28a745; /* Color distintivo */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: white; /* Texto blanco */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-tracking:hover {
+  background-color: #218838; /* Color más oscuro al pasar el mouse */
+}

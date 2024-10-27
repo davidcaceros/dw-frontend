@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   //URLBase: 'http://localhost:8080/api',
-
-  URLBase: 'http://167.99.144.245:8080/api',
+  //URLBase: 'http://167.99.144.245:8080/api',
+  URLBase: 'https://ventas.geniusapp.cloud/api',
   AUTH_KEY: 'key_value',
 };
 
