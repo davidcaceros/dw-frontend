@@ -16,7 +16,7 @@ export class SearchByCodeComponent implements OnInit {
     'LISTO PARA ENVIO',
     'EN CAMINO/TRANSITO',
     'ENTREGADO',
-    'RETORNAO',
+    'RETORNADO',
     'CANCELADO',
   ];
   estadoForm: FormGroup;

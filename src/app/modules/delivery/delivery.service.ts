@@ -58,7 +58,7 @@ export class DeliveryService {
   }
 
   generatePDF(idVenta: number): Observable<Blob> {
-    const url = `${this.baseUrl}/pdf/${idVenta}`;
+    const url = `${this.baseUrl}/entregas/pdf/${idVenta}`;
     return this.http
       .get(url, {
         responseType: 'blob',

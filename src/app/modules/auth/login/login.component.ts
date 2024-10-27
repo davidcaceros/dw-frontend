@@ -59,4 +59,8 @@ export class LoginComponent implements OnInit {
   togglePasswordVisibility() {
     this.clearPassword = !this.clearPassword;
   }
+
+  goToTracking() {
+    this.Router.navigate(['/tracking']);
+  }
 }

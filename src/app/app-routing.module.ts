@@ -69,6 +69,13 @@ const routes: Routes = [
         (m) => m.DeliveryModule
       ),
   },
+  {
+    path: 'tracking',
+    loadChildren: () =>
+      import('./modules/tracking/tracking.module').then(
+        (m) => m.TrackingModule
+      ),
+  },
 ];
 
 const routerConfig: ExtraOptions = {

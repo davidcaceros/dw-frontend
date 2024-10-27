@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-
+import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { Routes, RouterModule } from '@angular/router';
 // import { AutenticateGuard } from 'src/app/4DLAB.Core/guards/authenticated.guard';
@@ -23,7 +23,7 @@ import { SalesRoutingModule } from './sales-routing';
     MatIconModule,
     ReactiveFormsModule,
     MatInputModule,
-    // RouterModule.forChild(preOrderRoutes)
+    FormsModule,
     SalesRoutingModule,
     NavModule,
   ],

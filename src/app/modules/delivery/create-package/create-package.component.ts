@@ -112,7 +112,9 @@ export class CreatePackageComponent implements OnInit {
       },
       (error: any) => {
         console.error('Error generando el PDF', error);
-        this.modalMessage = error;
+        this.modalMessage =
+          'Error generando el PDF: ' +
+          (error.message || 'Ocurrió un error inesperado.');
         this.showModal = true;
       }
     );

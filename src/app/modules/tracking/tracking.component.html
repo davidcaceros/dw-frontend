@@ -1,0 +1,64 @@
+<div class="tracking-container mt-3">
+  <button class="btn-back" (click)="goToLogin()">&#8592; Regresar</button>
+  <h2>Rastreo de Paquete</h2>
+  <input
+    [(ngModel)]="trackingCode"
+    class="form-control"
+    placeholder="Ingrese código de rastreo"
+  />
+  <button (click)="searchPackage()" class="btn btn-primary mt-2">Buscar</button>
+
+  <div *ngIf="showError" class="alert alert-danger mt-3">
+    Código de rastreo no encontrado.
+  </div>
+
+  <div *ngIf="packageData" class="mt-4">
+    <div class="tracking-status">
+      <div
+        [ngClass]="{
+          completed:
+            packageStatus === 'LISTO PARA ENVIO' ||
+            packageStatus === 'EN CAMINO/TRANSITO' ||
+            packageStatus === 'ENTREGADO'
+        }"
+      >
+        Listo para Envío
+      </div>
+      <div
+        class="arrow"
+        [ngClass]="{
+          completed:
+            packageStatus === 'EN CAMINO/TRANSITO' ||
+            packageStatus === 'ENTREGADO'
+        }"
+      ></div>
+      <div
+        [ngClass]="{
+          completed:
+            packageStatus === 'EN CAMINO/TRANSITO' ||
+            packageStatus === 'ENTREGADO'
+        }"
+      >
+        En Camino/Tránsito
+      </div>
+      <div
+        class="arrow"
+        [ngClass]="{ completed: packageStatus === 'ENTREGADO' }"
+      ></div>
+      <div [ngClass]="{ completed: packageStatus === 'ENTREGADO' }">
+        Entregado
+      </div>
+    </div>
+
+    <div
+      *ngIf="packageStatus === 'EN CAMINO/TRANSITO'"
+      class="map-container"
+      id="map"
+      style="
+        background-image: url('assets/images/leaflet/mapa-vn.jpg');
+        background-size: cover;
+        height: 400px;
+      "
+    ></div>
+  </div>
+</div>
